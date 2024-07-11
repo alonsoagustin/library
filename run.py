@@ -1,6 +1,4 @@
-from app.models.models import Biblioteca
-from app.views.views import Vista_Biblioteca
-from app.controllers.controllers import Controlador_Biblioteca
+from app import *
 
 if __name__ == "__main__":
     
