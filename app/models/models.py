@@ -63,10 +63,3 @@ class Biblioteca:
             if libro.titulo == titulo:
                 return libro
         return f"El libro '{titulo}', no se encontró en la biblioteca."
-    
-    def buscar_libro(self, autor):
-        # Devuelve el libro con el autor dado, si existe en la biblioteca.
-        for libro in self.libros:
-            if libro.autor == autor:
-                return str(libro)
-        return f"No se encontraron libros del autor '{autor}' en la biblioteca."
