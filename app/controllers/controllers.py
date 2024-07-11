@@ -1,4 +1,4 @@
-from app.models.models import Libro, Biblioteca
+from app import Libro, Biblioteca
 
 class Controlador_Biblioteca:
     def __init__(self, modelo, vista):
@@ -20,7 +20,7 @@ class Controlador_Biblioteca:
         titulo = self.vista.obtener_titulo_libro()
         libro = self.modelo.buscar_libro(titulo)
         if libro:
-            mensaje = self.modelo.prestar()
+            mensaje = libro.prestar()
         else:
             mensaje = f'El libro "{titulo}" no se encontró en la biblioteca.'
         self.vista.mostrar_mensaje(mensaje)
