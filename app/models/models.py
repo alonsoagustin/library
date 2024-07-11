@@ -9,17 +9,17 @@ class Libro:
         # Cambia el estado del libro a no disponible.
         if self.disponible:
             self.disponible = False
-            return f"El libro {self.titulo} ha sido prestado."
+            return f"El libro '{self.titulo}' ha sido prestado."
         else:
-            return f"El libro {self.titulo} no esta disponible."
+            return f"El libro '{self.titulo}' no esta disponible."
 
     def devolver(self):
         # Cambia el estado del libro a disponible.
         if not self.disponible:
             self.disponible = True
-            return f"El libro {self.titulo} ha sido devuelto."
+            return f"El libro '{self.titulo}' ha sido devuelto."
         else:
-            return f"El libro {self.titulo} ya esta disponible."
+            return f"El libro '{self.titulo}' ya esta disponible."
 
     def __str__(self) -> str:
         # Devuelve una representación en cadena del libro con su información.
@@ -29,14 +29,14 @@ class Libro:
             estado = "no disponible"
         return f"{self.titulo}, Autor: {self.autor}, Año: {self.anio_publicacion}, Estado: {estado}"
 
-class Bibloteca:
+class Biblioteca:
     def __init__(self) -> None:
         self.libros = []
 
     def agregar_libro(self,libro):
         # Añade un libro a la biblioteca.
         self.libros.append(libro)
-        return f"El libro {libro.titulo} ha sido agregado a la bibloteca."
+        return f"El libro '{libro.titulo}' ha sido agregado a la bibloteca."
 
     def eliminar_libro(self,titulo):
         # Elimina un libro de la biblioteca por su título.
@@ -53,8 +53,7 @@ class Bibloteca:
             if libro.disponible == True:
                libros_disponibles.append(libro.titulo)
         if libros_disponibles:
-            for libro in libros_disponibles:
-                return '\n'.join(str(libro))
+                return libros_disponibles
         else: 
             return f"No hay libros disponibles."
 
@@ -62,12 +61,12 @@ class Bibloteca:
         # Devuelve el libro con el título dado, si existe en la biblioteca.
         for libro in self.libros:
             if libro.titulo == titulo:
-                return str(libro)
-        return f"El libro {titulo}, no se encontró en la biblioteca."
+                return libro
+        return f"El libro '{titulo}', no se encontró en la biblioteca."
     
     def buscar_libro(self, autor):
         # Devuelve el libro con el autor dado, si existe en la biblioteca.
         for libro in self.libros:
             if libro.autor == autor:
                 return str(libro)
-        return f"No se encontraron libros del autor {autor} en la biblioteca."
+        return f"No se encontraron libros del autor '{autor}' en la biblioteca."
